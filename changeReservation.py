@@ -23,9 +23,6 @@ def get_info_for_shorten_stay():
                 index = parties.index(i)
                 break
         else:
-            print('-------------------------------------------------------------')
-            print('check information, try again')
-            print('-------------------------------------------------------------')
             continue
         break
     while True:
@@ -34,13 +31,9 @@ def get_info_for_shorten_stay():
             if 1 <= days <= diff.days-1:
                 break
             else:
-                print('-------------------------------------------------------------')
-                print('you can shorten at least one day, ' + str(diff.days-1) + ' at most. try again!')
-                print('-------------------------------------------------------------')
+                pass
         except:
-            print('-------------------------------------------------------------')
-            print('please enter a number!')
-            print('-------------------------------------------------------------')
+            pass
     cancel_date_str_list = []
     for i in range(diff.days-days, diff.days+1):
         cancel_date = checkin_date + timedelta(i)
@@ -83,8 +76,6 @@ def changeReservation(rooms, guests, parties, party_id, checkin_date, checkout_d
             json.dump(room_schedules, open('rooms_schedules/' + i + '.txt', 'w'), sort_keys=True, indent=4)
         json.dump(party_bills, open('parties_bills/' + party_id + '.txt', 'w'), sort_keys=True, indent=4)
         json.dump(parties, open('parties.txt', 'w'), sort_keys=True, indent=4)
-        print('successfully re-schedule room')
-        print('-------------------------------------------------------------')
     else:
         pass
         # re enter days, need another loop
